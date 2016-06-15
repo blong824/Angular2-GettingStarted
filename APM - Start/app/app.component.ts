@@ -1,4 +1,6 @@
 import { Component } from 'angular2/core';
+import { HTTP_PROVIDERS } from 'angular2/http';
+import 'rxjs/Rx';
 import { ROUTER_PROVIDERS, RouteConfig, ROUTER_DIRECTIVES } from 'angular2/router';
 import { WelcomeComponent } from './home/welcome.component';
 import { ProductListComponent} from './products/product-list.component';
@@ -23,7 +25,7 @@ import { ProductService } from './products/product.service';
     </div>
   `,
   directives: [ROUTER_DIRECTIVES],
-  providers: [ProductService, ROUTER_PROVIDERS]
+  providers: [ProductService, HTTP_PROVIDERS, ROUTER_PROVIDERS]
 })
 @RouteConfig([
   { path: '/welcome', name: 'Welcome', component: WelcomeComponent, useAsDefault: true },
